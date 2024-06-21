@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: darkgrey;
+}
+.mainPage{
+    padding-left: 100px !important;
+    border: 2px solid black;
+    width: 400px;
+    padding: 15px 10px;
+}
+label{
+    font-size: 19px;
+    font-weight: 600;
+}
+.inpDiv{
+    background-color: rgba(24, 23, 23, 0.516);
+    /* border: 1px solid black; */
+    padding: 0px 5px;
+    width: 320px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    /* cursor: white; */
+}
+i{
+    margin-left: 10px;
+}
+.inp{
+    background-color: rgb(89, 88, 88);
+    color: white;
+    padding: 4px 7px;
+    width: 250px;
+    margin: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+.subBtn{
+    cursor: pointer;
+    padding: 8px;
+    font-size: 21px;
+    margin-top: 15px;
+    width: 330px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+    font-weight: 750;
+    color: white;
+    background-color: rgb(89, 88, 88);
+}

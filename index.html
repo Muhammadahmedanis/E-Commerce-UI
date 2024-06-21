@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -57,14 +58,132 @@
       <img class="lineImg" src="./images/Separator.png" alt="">
     </div>
     <p class="mainPara">Top selling products</p>  
+    <div class="slide-container swiper">
+      <div class="slide-content">
+          <div class="card-wrapper swiper-wrapper">
+              <div class="card swiper-slide">
+                  <div class="image-content">
+                      <span class="overlay"></span>
+                      <div class="card-image">
+                          <img src="./images/Photo Product.png" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card-content">
+                      <h2 class="name">Turkey Pashmina</h2>
+                      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, repudiandae! Lorem </p>
+                      <P class="fw-bold price">US$25.00</P>
+                      <button class="btn4">Buy now</button> 
+                  </div>
+              </div>
+              <div class="card swiper-slide">
+                  <div class="image-content">
+                      <span class="overlay"></span>
+                      <div class="card-image">
+                          <img src="./images/Photo Product (1).png" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card-content">
+                      <h2 class="name">Young Pashmina Pink Milk</h2>
+                      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, repudiandae! Lorem </p>
+                      <P class="fw-bold price">US$25.00</P>
+                      <button class="btn4">Buy now</button>
+                  </div>
+              </div>
+              <div class="card swiper-slide">
+                  <div class="image-content">
+                      <span class="overlay"></span>
+                      <div class="card-image">
+                          <img src="./images/Photo Product (2).png" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card-content">
+                      <h2 class="name">Women Dress Brown</h2>
+                      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, repudiandae! Lorem </p>
+                      <P class="fw-bold price">US$25.00</P>
+                      <button class="btn4">Buy now</button>
+                  </div>
+              </div>
+              <div class="card swiper-slide">
+                  <div class="image-content">
+                      <span class="overlay"></span>
+                      <div class="card-image">
+                          <img src="./images/Photo Product (3).png" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card-content">
+                      <h2 class="name">Young Pashmina Choco Milk</h2>
+                      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, repudiandae! Lorem</p>
+                      <P class="fw-bold price">US$25.00</P>
+                      <button class="btn4">Buy now</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+  </div>
   </div>
   <div class="line text-center">
+    <h3>Trending</h3>
     <img class="lineImg" src="./images/Separator.png" alt="">
-  </div>
+    <p class="mainPara">Recently launched products</p>
 
-  <div onclick="Top()" class="icon">
-    <i class="fa-solid fa-arrow-up"></i>
+
+    <div id="add" class="container">
+      <div id="add2" class="d-flex row justify-content-center gap-4 my-3">
+        <div class="col-lg-3 prod col-6 col-sm-6 col-md-4 p-0">
+        <div class="imgprod">
+          <img src="./images/Photo Product (4).png" alt="">
+        </div>
+        <div>
+          <p>Women Dress Grey</p>
+          <p class="fw-bold price1">US$40.00</p>
+          <button class="btn4">Buy now</button>
+        </div>
+      </div>
+      <div class="col-lg-3 col-12 col-sm-6 prod p-0">
+        <div class="imgprod">
+          <img src="./images/Photo Product (5).png" alt="">
+        </div>
+        <div>
+          <p>Women Dress Black</p>
+          <p class="fw-bold price1">US$40.00</p>
+          <button class="btn4">Buy now</button>
+        </div>
+      </div>
+      <div class="col-lg-3 col-12 col-sm-6 prod p-0">
+        <div class="imgprod">
+          <img src="./images/Photo Product (6).png" alt="">
+        </div>
+        <div>
+          <p>Mix Grey Black Motifs</p>
+          <p class="fw-bold price1">US$40.00</p>
+          <button class="btn4">Buy now</button>
+        </div>
+      </div>
+      <div class="col-lg-3 col-12 col-sm-6 prod p-0">
+        <div class="imgprod">
+          <img src="./images/Photo Product (7).png" alt="">
+        </div>
+        <div>
+          <p>Muslima Mass Green</p>
+          <p class="fw-bold price1">US$40.00</p>
+          <button class="btn4">Buy now</button>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
+  
+  <!-- <div onclick="Top()" class="icon">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div> -->
   
 </div>
 
@@ -172,7 +291,9 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="app2.js"></script>
 <script src="app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
