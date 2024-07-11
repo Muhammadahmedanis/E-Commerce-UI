@@ -14,87 +14,118 @@ function sub() {
 
 
 // Add  Card modal
-var add = document.getElementById("add");
-var add2 = document.getElementById("add2");
-var cardSrc = document.getElementById("cardSrc");
-var cardTitle = document.getElementById("cardTitle");
-var produnctPrice = document.getElementById("productPrice")
-var arr = []
+let cardArr = JSON.parse(localStorage.getItem("data")) || [];
+let adminCard = document.getElementById("adminCard");
+let userCard = document.getElementById("add2");
 
-function clk() {
-    
-    var obj = {
-        img: cardSrc.value,
-        title: cardTitle.value,
-        price: produnctPrice.value,
-    }
-    arr.push(obj);
-    localStorage.setItem("data", JSON.stringify(arr));
-
-    add.innerHTML += `
-    <div class="col-lg-3 prod col-6 col-sm-6 p-0">
-        <div class="imgprod">
-            <img src= ${obj.img} alt="">
-        </div>
-        <div>
-            <p>${obj.title}</p>
-            <p class="fw-bold price1">${obj.price}</p>
-            <button class="btn4">Buy now</button>
-        </div>
-    </div>`
-    cardTitle.value = '';
-    cardSrc.value = '';
-    produnctPrice.value = '';
-
-}
-function call() {
-    var get = JSON.parse(localStorage.getItem("data"));
-    get.map(function (data) {
-        var div1 = document.createElement("div");
-        div1.setAttribute("class", "col-lg-3 prod col-6 col-sm-6 col-md-4 p-0");
-        var divimg = document.createElement("div");
-        divimg.setAttribute("class", "imgprod")
-        var img1 = document.createElement("img");
-        img1.setAttribute("class", "car")
-        img1.src = data.img;
-        divimg.appendChild(img1)
-        div1.appendChild(divimg);
-        add2.appendChild(div1);       
-        add.appendChild(add2);
-
-        var div2  = document.createElement("div");
-        div1.appendChild(div2)
-
-        var head = document.createElement("h5");
-        var headText = document.createTextNode(data.title);
-        head.appendChild(headText);
-        div2.appendChild(head);
-
-        var para = document.createElement("p");
-        para.setAttribute("class", "fw-bold price1");
-        var paraText = document.createTextNode(data.price);
-        para.appendChild(paraText);
-        div2.appendChild(para);
-
-        var btn = document.createElement("button");
-        btn.setAttribute("class", "btn4");
-        var btnText = document.createTextNode("Buy now");
-        btn.appendChild(btnText);
-        div2.appendChild(btn);
-
+const displayItem = () => {   
+    cardArr.map((val, ind) => {
+        if(adminCard){
+            adminCard.innerHTML += `
+            <div id= card-${ind} class="col-lg-2 prod col-6 col-sm-6 p-0">
+                <div class="imgprod">
+                    <img src= "${val.img}" alt="">
+                </div>
+                <div>
+                    <p>${val.title}</p>
+                    <p class="fw-bold price1">${val.price}</p>
+                    <button class="btn4">Buy now</button>
+                    <button onclick = "delBtn(${ind})" class="btn4">Delete</button>
+                    <button onclick = "updFunc(${ind})" class="btn4">Update</button>
+                    </div>
+                </div>`
+                }
+            if(userCard){
+                userCard.innerHTML += `
+                <div ind= ${ind} class="col-lg-3 prod col-6 col-sm-6 p-0">
+                    <div class="imgprod">
+                        <img src= "${val.img}" alt="">
+                    </div>
+                    <div>
+                        <p>${val.title}</p>
+                        <p class="fw-bold price1">${val.price}</p>
+                        <button class="btn4">Buy now</button>
+                    </div>
+                </div>`
+                }
     })
 }
-if(localStorage.getItem("data"))
-{
-    call()
+if(cardArr){
+    displayItem()
 }
+
+// delete func
+function delBtn(ind) {
+    let cardElement = document.getElementById(`card-${ind}`)
+    if(cardElement){
+        cardArr.splice(ind, 1);
+        cardElement.remove()
+        localStorage.setItem("data", JSON.stringify(cardArr))
+    }
+}
+// 
+
+
+// Upd Func
+function updFunc(ind) {
+    let updCard = cardArr[ind];
+    const cardNewTitle = prompt("Enter title", updCard.title); 
+    const cardNewPrice = prompt("Enter title", updCard.price); 
+    const cardNewImg = prompt("Enter title", updCard.img); 
+    if(cardNewImg && cardNewPrice && cardNewTitle){
+        cardArr[ind] = {
+            img: cardNewImg,
+            title: cardNewTitle,
+            price: cardNewPrice,
+        }
+        localStorage.setItem("data", JSON.stringify(cardArr));
+        adminCard.innerHTML = '';
+        displayItem()
+    }
+}
+
+
+
+
+let sendCard = document.getElementById("sendCard");
+let Card = () => {
+    var cardSrc = document.getElementById("cardSrc");
+    var cardTitle = document.getElementById("cardTitle");
+    var productPrice = document.getElementById("productPrice")
+    let cardObj = {
+        img: cardSrc.value,
+        title: cardTitle.value,
+        price: productPrice.value,
+    }
+    cardArr.push(cardObj);
+    localStorage.setItem("data", JSON.stringify(cardArr));
+    cardSrc.value ='';
+    cardTitle.value ='';
+    productPrice.value ='';
+
+    adminCard.innerHTML = ''
+    displayItem()
+}
+
+if(sendCard)
+{
+    sendCard.addEventListener("click", Card);
+}
+
+
+
+
+
+
+
+
+
 
 
 // logOut btn
-function lk() {
+function logOutBtn() {
     location.href = "signin.html";
 }
-
 
 
 // var swiper = new Swiper(".slide-content", {
